@@ -188,6 +188,13 @@ width: 650px;
    cursor: default;
 }
 
+#myQuiz .question .ans.image {
+   min-height: 60px;
+   padding: 0px;
+   background-repeat: no-repeat;
+   background-position: 0px 0px;
+}
+
 
 /* Feedback */
 
@@ -244,3 +251,27 @@ width: 650px;
    background-color: #59adeb;
    background-image: url(../images/icon_twitter.svg);
 }
+
+#myQuiz .active, #myQuiz .inactive {
+   transition: left 1.5s ease-in-out;
+}
+
+#myQuiz .active {
+   left: 40px;
+}
+
+#myQuiz .intro.inactive, #myQuiz .inactive.answered {
+   left: -1350px;
+}
+
+/* TEST */
+
+#myQuiz {
+   height: 1000px;
+}
+
+#myQuiz .results {
+   top: 650px !important;
+   left: 40px !important;
+}
+
