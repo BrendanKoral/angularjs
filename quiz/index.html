@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Test Your Knowledge: Saturn</title>
 		<link rel="stylesheet" type="text/css" href="css/quiz.css">
+
 	</head>
 	<body>
 
@@ -22,7 +23,9 @@
 		<div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active'}}">
 			<h2>Welcome</h2>
 			<p>Click begin to test your knowledge of Saturn.</p>
+			<div class="forward">
 			<p class="btn" ng-click="activeQuestion = 0">Begin</p>
+			</div>
 		</div>
 		<div class="question
 		{{ ($index === activeQuestion) ? 'active' : 'inactive'}}
@@ -49,7 +52,7 @@
 		<div class="results {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive' }}">
 			<h3>Results</h3>
 			<p>You scored {{percentage}}% by correctly answering {{score}} out of the total {{totalQuestions}} questions.</p>
-			<p>Use the links below to challenge your friends.</p>
+			<p>Use the links below to challenge your friends!</p>
 			<div class="share" ng-bind-html="createShareLinks(percentage)"></div>
 		</div>
 
