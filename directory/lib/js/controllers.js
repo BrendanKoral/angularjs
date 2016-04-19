@@ -4,11 +4,10 @@
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('MyController', function MyController($scope) {
-   $scope.author = {
-       'name':'Brendan Koral',
-       'title': 'Front End Web Dev',
-       'company': 'BK Dev'
-       
-   } 
-});
+myApp.controller('MyController', ['$scope', '$http', function($scope, $http) {
+   $http.get('lib/js/data.json').success(function(data) {
+       $scope.artists = data;
+       $scope.artistOrder = 'name';
+       //When the data is pulled in, it sets artistOrder field to name
+   });
+}]);
