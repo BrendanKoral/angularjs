@@ -2,12 +2,19 @@
  * Created by Koral on 4/19/2016.
  */
 
-var myApp = angular.module('myApp', []);
+var artistControllers = angular.module('artistControllers', []);
 
-myApp.controller('MyController', ['$scope', '$http', function($scope, $http) {
+artistControllers.controller('ListController', ['$scope', '$http', function($scope, $http) {
    $http.get('lib/js/data.json').success(function(data) {
        $scope.artists = data;
        $scope.artistOrder = 'name';
-       //When the data is pulled in, it sets artistOrder field to name
    });
+}]);
+
+artistControllers.controller('DetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    $http.get('lib/js/data.json').success(function(data) {
+        $scope.artists = data;
+        $scope.whichItem = $routeParams.itemId;
+
+    });
 }]);
