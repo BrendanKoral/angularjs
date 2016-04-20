@@ -2,7 +2,7 @@
  * Created by Koral on 4/19/2016.
  */
 
-var artistControllers = angular.module('artistControllers', []);
+var artistControllers = angular.module('artistControllers', ['ngAnimate']);
 
 artistControllers.controller('ListController', ['$scope', '$http', function($scope, $http) {
    $http.get('lib/js/data.json').success(function(data) {
