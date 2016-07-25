@@ -46,3 +46,7 @@
 .templates .col-md-4 {
   margin-bottom: 20px;
 }
+
+.img-full {
+  width: 100%;
+}
