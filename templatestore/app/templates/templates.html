@@ -1,44 +1,10 @@
 <div class="row templates">
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/blue.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
+    <div ng-repeat="template in templates">
+        <div class="col-md-4">
+            <h3>{{template.name}}</h3>
+            <img ng-src="img/{{template.images[0].name}}" alt="">
+            <h4>{{template.price | currency}}</h4>
+            <a href="#/templates/{{template.id}}" class="btn btn-primary btn-block">Details</a>
+        </div>
     </div>
-
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/red.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/green.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/orange.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/gray.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Blue Template</h3>
-        <img src="img/purple.jpg" alt="">
-        <h4>$19.99</h4>
-        <a href="#/templates/1" class="btn btn-primary btn-block">Details</a>
-    </div>
-
 </div>
