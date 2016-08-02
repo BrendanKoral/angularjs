@@ -36,7 +36,29 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     })
+
+    // The above lines are all from the Facebook API, straight copy paste
     
-    .controller('FacebookCtrl', [function() {
+    .controller('FacebookCtrl', ['$scope', '$facebook', function($scope, $facebook) {
+        $scope.isLoggedIn = false;
+
+        $scope.login = function() {
+            $facebook.login().then(function() {
+                refresh();
+            });
+        };
+
+        function refresh() {
+            $facebook.api("/me").then(
+                function(response) {
+                    $scope.welcomeMsg = "Welcome " + response.name;
+                    $scope.isLoggedIn = true;
+                },
+                function(err) {
+                    $scope.welcomeMsg = "Please log in";
+                });
+        }
+
+        refresh();
 
     }]);
