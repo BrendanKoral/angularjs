@@ -32,7 +32,7 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = "http://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     })
@@ -42,23 +42,14 @@ angular.module('ngSocial.facebook', ['ngRoute', 'ngFacebook'])
     .controller('FacebookCtrl', ['$scope', '$facebook', function($scope, $facebook) {
         $scope.isLoggedIn = false;
 
-        $scope.login = function() {
-            $facebook.login().then(function() {
-                refresh();
+        $scope.login = function () {
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    console.log('Logged in.');
+                }
+                else {
+                    FB.login();
+                }
             });
-        };
-
-        function refresh() {
-            $facebook.api("/me").then(
-                function(response) {
-                    $scope.welcomeMsg = "Welcome " + response.name;
-                    $scope.isLoggedIn = true;
-                },
-                function(err) {
-                    $scope.welcomeMsg = "Please log in";
-                });
         }
-
-        refresh();
-
     }]);
